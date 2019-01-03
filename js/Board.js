@@ -1,7 +1,7 @@
-function Board(canvas, board, ROW, COLUMN, VACANT, square) {
+function Board(canvas, board, square) {
     this.canvas = document.getElementById(canvas);
     this.ctx = this.canvas.getContext('2d');
-    this.board = board;
+    this.boardMatrix = board;
     this.ROW = ROW;
     this.COLUMN = COLUMN;
     this.VACANT = VACANT;
@@ -13,7 +13,7 @@ Board.prototype.createBoard = function () {
         boardMatrix[r] = [];
 
         for(let c=0; c<this.COLUMN; c++) {
-            this.board[r][c] = this.VACANT;
+            this.boardMatrix[r][c] = this.VACANT;
         }
     }
 };
@@ -21,7 +21,7 @@ Board.prototype.createBoard = function () {
 Board.prototype.drawBoard = function () {
     for(let r=0; r<this.ROW; r++) {
         for (let c = 0; c < this.COLUMN; c++) {
-            this.square.drawSquare(this.ctx, c, r, this.board[r][c])
+            this.square.drawSquare(this.ctx, c, r, this.boardMatrix[r][c])
         }
     }
 };
