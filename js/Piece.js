@@ -5,61 +5,119 @@ function Piece(tetromino, color, board) {
     this.color = color;
     this.board = board;
     this.x = 3;
-    this.y = 0;
+    this.y = -1;
 }
 
-Piece.prototype.draw = function (ctx, color = this.color) {
-    const fs = ctx.fillStyle;
-    ctx.fillStyle = this.color;
+Piece.prototype.fill = function( color) {
     for(let r=0; r<this.activeTetromino.length; r++) {
         for(let c=0; c<this.activeTetromino.length; c++) {
             if (this.tetromino[r][c]) {
-                this.board.square.drawSquare(ctx, this.x + c, this.y + r, color);
+                this.board.square.drawSquare(this.board.ctx, this.x + c, this.y + r, color);
             }
         }
     }
-    ctx.fillStyle = fs;
+};
+
+Piece.prototype.draw = function () {
+    this.fill(this.color);
 };
 
 Piece.prototype.unDraw = function () {
-    this.draw(this.board.ctx, VACANT);
+    this.fill(VACANT);
 };
 
 Piece.prototype.down = function () {
-    if (this.collision(0, 1)) {
+    if (!this.collision(0, 1)) {
         this.unDraw();
         this.y++;
-        this.draw(this.board.ctx);
+        this.draw();
+    } else {
+        this.lock();
+        piece = randomNextPiece();
     }
 };
 
 Piece.prototype.moveRight = function () {
-    if (this.collision(1, 0)) {
+    if (!this.collision(1, 0)) {
         this.unDraw();
         this.x++;
-        this.draw(this.board.ctx);
+        this.draw();
     }
 };
 
 Piece.prototype.moveLeft = function () {
-    if (this.collision(-1, 0)) {
+    if (!this.collision(-1, 0)) {
         this.unDraw();
         this.x--;
-        this.draw(this.board.ctx);
+        this.draw();
     }
 };
 
 Piece.prototype.rotate = function () {
+    const nextPattern = this.tetromino[(this.index+1)% this.tetromino.length];
+    let kick = 0;
 
+    if (this.collision(0, 0, nextPattern)) {
+        if (this.x > COLUMN/2) kick = -1;
+        else kick = 1;
+    }
+
+
+    if (!this.collision(kick, 0, nextPattern)) {
+        this.unDraw();
+        this.x += kick;
+        this.index = (this.index+1)% this.tetromino.length;
+        this.activeTetromino = this.tetromino[(this.index+1)% this.tetromino.length];
+        this.draw();
+    }
 };
 
 Piece.prototype.collision = function (x, y) {
-    for(let r=0; r<this.ROW; r++) {
-        for (let c = 0; c < this.COLUMN; c++) {
-            if (!this.tetromino[r][c]) continue;
-            if (this.x < 0 || this.x >= COLUMN || this.y >= ROW ) return true;
-            if (this.board.boardMatrix[this.x][this.y]) return true;
+    for(let r=0; r<this.activeTetromino.length; r++) {
+        for (let c = 0; c < this.activeTetromino.length; c++) {
+            if (!this.activeTetromino[r][c]) continue; // Is not a blank space
+
+            const newX = this.x + x + c;
+            const newY = this.y + y + r;
+
+            if (newX < 0 || newX >= COLUMN || newY >= ROW ) return true; // beyond the boundaries
+            if (newY < 0) continue;
+            if (this.board.boardMatrix[newY][newX] !== VACANT) return true; // is occupied
         }
     }
     return false;
+};
+
+Piece.prototype.lock = function () {
+    for(let r=0; r<this.activeTetromino.length; r++) {
+        for (let c = 0; c < this.activeTetromino.length; c++) {
+            if (!this.activeTetromino[r][c]) continue;
+            if (this.y+r < 0) {
+                GAME_OVER = true;
+                alert('Game over');
+                break;
+            }
+            this.board.boardMatrix[this.y+r][this.x+c] = this.color;
+        }
+    }
+
+    for(let r=0; r<ROW; r++) {
+        let isFullRow = true;
+        for(let c=0; c<COLUMN; c++) {
+            isFullRow = isFullRow && this.board.boardMatrix[r][c] !== VACANT;
+        }
+
+        if (isFullRow) {
+            for(let y=r; y>1; y--) {
+                for(let c=0; c<COLUMN; c++) {
+                    this.board.boardMatrix[y][c] = this.board.boardMatrix[y-1][c];
+                }
+                this.board.boardMatrix[8][10] = this.board.boardMatrix[7][10];
+                for(let c=0; c<COLUMN; c++) {
+                    this.board.boardMatrix[0][c] = VACANT;
+                }
+                SCORE += 10;
+            }
+        }
+    }
 };
