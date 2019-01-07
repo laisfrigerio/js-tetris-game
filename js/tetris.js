@@ -24,8 +24,8 @@ function CONTROL(event) {
         piece.moveRight();
         DROP_START = Date.now();
     } else if (key === 40) {
-      console.log('down');
-        piece.down();
+        piece.down('down');
+        DROP_START = Date.now();
     }
 }
 

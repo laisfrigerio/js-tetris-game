@@ -26,8 +26,8 @@ Piece.prototype.unDraw = function () {
     this.fill(VACANT);
 };
 
-Piece.prototype.down = function () {
-    if (!this.collision(0, 1)) {
+Piece.prototype.down = function (type = 'right') {
+    if (!this.collision(0, 1, type)) {
         this.unDraw();
         this.y++;
         this.draw();
@@ -72,7 +72,7 @@ Piece.prototype.rotate = function () {
     }
 };
 
-Piece.prototype.collision = function (x, y) {
+Piece.prototype.collision = function (x, y, type) {
     for(let r=0; r<this.activeTetromino.length; r++) {
         for (let c = 0; c < this.activeTetromino.length; c++) {
             if (!this.activeTetromino[r][c]) continue; // Is not a blank space
@@ -83,6 +83,10 @@ Piece.prototype.collision = function (x, y) {
             if (newX < 0 || newX >= COLUMN || newY >= ROW ) return true; // beyond the boundaries
             if (newY < 0) continue;
             if (this.board.boardMatrix[newY][newX] !== VACANT) return true; // is occupied
+            if (type === 'down') {
+                console.log(newY);
+                console.log(this.board.boardMatrix[newY][newX]);
+            }
         }
     }
     return false;
@@ -122,4 +126,6 @@ Piece.prototype.lock = function () {
             }
         }
     }
+
+    this.board.drawBoard();
 };
