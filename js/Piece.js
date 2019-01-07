@@ -1,5 +1,5 @@
 function Piece(tetromino, color, board) {
-    this.tetromino = tetromino[0];
+    this.tetromino = tetromino;
     this.index = 0;
     this.activeTetromino = this.tetromino[this.index];
     this.color = color;
@@ -11,7 +11,7 @@ function Piece(tetromino, color, board) {
 Piece.prototype.fill = function( color) {
     for(let r=0; r<this.activeTetromino.length; r++) {
         for(let c=0; c<this.activeTetromino.length; c++) {
-            if (this.tetromino[r][c]) {
+            if (this.activeTetromino[r][c]) {
                 this.board.square.drawSquare(this.board.ctx, this.x + c, this.y + r, color);
             }
         }
@@ -76,7 +76,7 @@ Piece.prototype.collision = function (x, y) {
     for(let r=0; r<this.activeTetromino.length; r++) {
         for (let c = 0; c < this.activeTetromino.length; c++) {
             if (!this.activeTetromino[r][c]) continue; // Is not a blank space
-
+          
             const newX = this.x + x + c;
             const newY = this.y + y + r;
 
@@ -106,6 +106,8 @@ Piece.prototype.lock = function () {
         for(let c=0; c<COLUMN; c++) {
             isFullRow = isFullRow && this.board.boardMatrix[r][c] !== VACANT;
         }
+        
+        console.log('completed = ' + isFullRow);
 
         if (isFullRow) {
             for(let y=r; y>1; y--) {

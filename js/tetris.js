@@ -10,7 +10,6 @@ let piece = randomNextPiece();
 
 board.createBoard();
 board.drawBoard();
-// boardMatrix.drawTetromino(Z[0], 'orange');
 piece.draw(board.ctx);
 
 function CONTROL(event) {
@@ -25,6 +24,7 @@ function CONTROL(event) {
         piece.moveRight();
         DROP_START = Date.now();
     } else if (key === 40) {
+      console.log('down');
         piece.down();
     }
 }
@@ -33,6 +33,7 @@ window.addEventListener('keydown', CONTROL);
 
 function randomNextPiece() {
     let random = Math.floor(Math.random() * PIECES.length);
+    console.log('random = ' + random);
     return new Piece(PIECES[random][0], PIECES[random][1], board);
 }
 
