@@ -1,0 +1,37 @@
+{
+  "name": "js-tetris-game",
+  "version": "1.0.0",
+  "description": "JS + Canvas Tetris Game",
+  "main": "public/js/tetris.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laisfrigerio/js-tetris-game.git"
+  },
+  "keywords": [
+    "js",
+    "canvas",
+    "tetris",
+    "game"
+  ],
+  "author": "Lais Frigério da Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laisfrigerio/js-tetris-game/issues"
+  },
+  "homepage": "https://github.com/laisfrigerio/js-tetris-game#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
+  }
+}
