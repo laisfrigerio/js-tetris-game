@@ -5,7 +5,7 @@
 Obs: Install node
 
 ```
-    $ npm install -b gulp
+    $ npm install -g gulp
     $ npm install
     $ gulp css
     $ gulp js

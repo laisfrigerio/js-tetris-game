@@ -122,8 +122,9 @@ Piece.prototype.lock = function () {
                 for(let c=0; c<COLUMN; c++) {
                     this.board.boardMatrix[0][c] = VACANT;
                 }
-                SCORE += 10;
             }
+          SCORE += 10;
+          document.getElementById('score').innerText = '' + SCORE;
         }
     }
 
