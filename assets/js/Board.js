@@ -25,13 +25,3 @@ Board.prototype.drawBoard = function () {
         }
     }
 };
-
-Board.prototype.drawTetromino = function (piece, color) {
-    for(let r=0; r<piece.length; r++) {
-        for(let c=0; c<piece.length; c++) {
-            if (piece[r][c]) {
-                this.square.drawSquare(this.ctx, c,r, color);
-            }
-        }
-    }
-};

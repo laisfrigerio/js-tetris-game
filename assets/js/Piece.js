@@ -124,7 +124,7 @@ Piece.prototype.lock = function () {
                 }
             }
           SCORE += 10;
-          document.getElementById('score').innerText = '' + SCORE;
+          setScore();
         }
     }
 

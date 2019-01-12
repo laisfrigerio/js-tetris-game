@@ -6,9 +6,16 @@
     <link href="css/tetris.css" rel="stylesheet">
 </head>
 <body>
-    <div id="score">0</div>
+    <div id="score">
+        SCORE:
+        <span id="score-span">0</span>
+    </div>
     <div id="board">
         <canvas id="tetris" width="200" height="400"></canvas>
+    </div>
+    <div id="control">
+        <button id="restart" type="button">RESTART</button>
+        <button id="pause" type="button">PAUSE</button>
     </div>
     <script type="text/javascript" src="js/tetrominoes.js"></script>
     <script type="text/javascript" src="js/const.js"></script>

@@ -1,4 +1,6 @@
 let GAME_OVER = false;
+let PAUSE = false;
+let RESTART = false;
 let SCORE = 0;
 let DROP_START = Date.now();
 
@@ -6,11 +8,9 @@ let boardMatrix = [];
 
 let square = new Square(SQUARE_SIZE);
 let board = new Board('tetris', boardMatrix, square);
-let piece = randomNextPiece();
+let piece = null;
 
-board.createBoard();
-board.drawBoard();
-piece.draw(board.ctx);
+start();
 
 function CONTROL(event) {
     const key = event.which;
@@ -33,7 +33,6 @@ window.addEventListener('keydown', CONTROL);
 
 function randomNextPiece() {
     let random = Math.floor(Math.random() * PIECES.length);
-    console.log('random = ' + random);
     return new Piece(PIECES[random][0], PIECES[random][1], board);
 }
 
@@ -46,9 +45,34 @@ function drop() {
         DROP_START = Date.now();
     }
 
-    if (!GAME_OVER) {
+    if (!GAME_OVER && !PAUSE) {
         requestAnimationFrame(drop);
     }
 }
 
-drop();
+document.querySelector('#pause').addEventListener('click', function() {
+    if (PAUSE) {
+      requestAnimationFrame(drop);
+    }
+    PAUSE = !PAUSE;
+});
+
+function start() {
+  piece = randomNextPiece();
+  board.createBoard();
+  board.drawBoard();
+  piece.draw(board.ctx);
+  drop();
+}
+
+function setScore() {
+  document.getElementById('score-span').innerText = '' + SCORE;
+}
+
+document.querySelector('#restart').addEventListener('click', function() {
+  RESTART = true;
+  PAUSE = false;
+  SCORE = 0;
+  setScore();
+  start();
+});
