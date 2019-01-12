@@ -7,8 +7,8 @@ const VACANT = 'white';
 
 let boardMatrix = [],  r = 0, c = 0
 
-// let Square = new Square(SQUARE_SIZE);
-// let Board = new Board('tetris', boardMatrix, ROW, COLUMN, VACANT, Square);
+// let 3_Square = new 3_Square(SQUARE_SIZE);
+// let Board = new Board('tetris', boardMatrix, ROW, COLUMN, VACANT, 3_Square);
 // Board.createBoard();
 // Board.drawBoard();
 // Board.drawTetromino(Z, 'orange');

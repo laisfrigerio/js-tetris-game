@@ -7,7 +7,7 @@ let DROP_START = Date.now();
 let boardMatrix = [];
 
 let square = new Square(SQUARE_SIZE);
-let board = new Board('tetris', boardMatrix, square);
+let board = new 4('tetris', boardMatrix, square);
 let piece = null;
 
 start();
