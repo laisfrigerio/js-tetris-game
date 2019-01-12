@@ -10,3 +10,5 @@ Obs: Install node
     $ gulp css
     $ gulp js
 ```
+
+![alt text](https://github.com/laisfrigerio/js-tetris-game/blob/pause/public/images/branch/pause.png "Game screenshot")
