@@ -6,11 +6,11 @@ html
     height: 100%
     margin: 0
     background-color: $color-black
+    font-family: 'Press Start 2P', cursive
+    font-size: 10px
+    letter-spacing: 2px
     button
       cursor: pointer
-      font-family: 'Press Start 2P',cursive
-      font-size: 10px
-      letter-spacing: 2px
       border: none
       border-radius: 4px
       padding: 5px
@@ -26,9 +26,6 @@ html
       margin-left: auto
       margin-right: auto
       text-align: center
-      font-family: 'Press Start 2P', cursive
-      font-size: 10px
-      letter-spacing: 2px
     #board
       display: flex
       justify-content: center
@@ -41,22 +38,33 @@ html
         border: 3px double $color-violet
         margin-left: auto
         margin-right: auto
-    #control
+        //@media (max-width: 768px)
+          //width: 80%
+    .control
       display: flex
       justify-content: center
       align-items: flex-start
       flex-wrap: wrap
+      margin-top: 10px
       #pause
         margin-top: 10px
         color: $color-white
-        background-color: $color-blue
+        background-color: $color-red
         &:hover
-          background-color: #0e0e8a
-          border: 1px solid #07072d
+          background-color: #b30101
+          border: 1px solid #7b0101
       #restart
         margin-top: 10px
-        color: $color-white
-        background-color: $color-orange
+        color: $color-black
+        background-color: $color-yellow
         &:hover
-          background-color: #b77d01
+          background-color: #afaf03
           border: 1px solid #6b4a03
+      .key
+        button
+          color: white
+          background-color: #139e00
+          width: 40px
+          height: 30px
+          &:hover
+            background-color: #0f7302

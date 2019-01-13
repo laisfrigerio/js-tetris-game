@@ -84,8 +84,6 @@ Piece.prototype.collision = function (x, y, type) {
             if (newY < 0) continue;
             if (this.board.boardMatrix[newY][newX] !== VACANT) return true; // is occupied
             if (type === 'down') {
-                console.log(newY);
-                console.log(this.board.boardMatrix[newY][newX]);
             }
         }
     }
@@ -111,8 +109,6 @@ Piece.prototype.lock = function () {
             isFullRow = isFullRow && this.board.boardMatrix[r][c] !== VACANT;
         }
         
-        console.log('completed = ' + isFullRow);
-
         if (isFullRow) {
             for(let y=r; y>1; y--) {
                 for(let c=0; c<COLUMN; c++) {

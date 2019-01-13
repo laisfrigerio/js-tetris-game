@@ -7,26 +7,32 @@ let DROP_START = Date.now();
 let boardMatrix = [];
 
 let square = new Square(SQUARE_SIZE);
-let board = new 4('tetris', boardMatrix, square);
+let board = new Board('tetris', boardMatrix, square);
 let piece = null;
 
 start();
 
 function CONTROL(event) {
     const key = event.which;
-    if (key === 37) {
-        piece.moveLeft();
-        DROP_START = Date.now();
-    } else if (key === 38) {
-        piece.rotate();
-        DROP_START = Date.now();
-    } else if (key === 39) {
-        piece.moveRight();
-        DROP_START = Date.now();
-    } else if (key === 40) {
-        piece.down('down');
-        DROP_START = Date.now();
+    checkKey(key);
+}
+
+function checkKey(key) {
+  if(!PAUSE) {
+    if (key === KEY_LEFT) {
+      piece.moveLeft();
+      DROP_START = Date.now();
+    } else if (key === KEY_UP) {
+      piece.rotate();
+      DROP_START = Date.now();
+    } else if (key === KEY_RIGHT) {
+      piece.moveRight();
+      DROP_START = Date.now();
+    } else if (key === KEY_DOWN) {
+      piece.down('down');
+      DROP_START = Date.now();
     }
+  }
 }
 
 window.addEventListener('keydown', CONTROL);
@@ -55,6 +61,22 @@ document.querySelector('#pause').addEventListener('click', function() {
       requestAnimationFrame(drop);
     }
     PAUSE = !PAUSE;
+});
+
+document.querySelector('#left').addEventListener('click', function() {
+  checkKey(KEY_LEFT);
+});
+
+document.querySelector('#right').addEventListener('click', function() {
+  checkKey(KEY_RIGHT);
+});
+
+document.querySelector('#down').addEventListener('click', function() {
+  checkKey(KEY_DOWN);
+});
+
+document.querySelector('#up').addEventListener('click', function() {
+  checkKey(KEY_UP);
 });
 
 function start() {
