@@ -17,15 +17,13 @@ html
       outline: none
       margin-right: 5px
     #score
-      max-width: 200px
+      display: flex
+      justify-content: center
       background-color: $color-black
       color: $color-white
       margin-top: 25px
       padding-top: 10px
       height: 25px
-      margin-left: auto
-      margin-right: auto
-      text-align: center
     #board
       display: flex
       justify-content: center
@@ -36,10 +34,11 @@ html
       border-radius: 10px
       canvas
         border: 3px double $color-violet
-        margin-left: auto
-        margin-right: auto
-        //@media (max-width: 768px)
-          //width: 80%
+        //margin-left: auto
+        //margin-right: auto
+      #next-piece
+        border: 3px double #b01dbf
+        margin-left: 10px
     .control
       display: flex
       justify-content: center
@@ -68,3 +67,40 @@ html
           height: 30px
           &:hover
             background-color: #0f7302
+    .control-margin
+      margin-left: -70px
+    .container-1
+      display: flex
+      flex-direction: row
+      justify-content: center
+      height: 500px
+      //border: 1px solid #777
+      background-color: black
+      margin-top: 30px
+      .flex-item-2
+        width: 200px
+        height: 100px
+        margin-right: 8px            /* a bit of space between centered flex items */
+        border: 1px dashed #333
+        background-color: yellow
+        margin-left: auto
+      .flex-margin-left
+        margin-left: -90px
+      .flex-item
+        height: 98%
+        width: 200px
+        margin-right: 8px            /* a bit of space between centered flex items */
+        border: 1px dashed #333
+        background-color: yellow
+        margin-left: auto
+    .flex-margin-top
+      margin-top: 10px
+    .container-2
+      display: flex
+      flex-direction: column        /* flex items (in second column) will stack vertically */
+      margin-right: auto
+      .flex-item
+        height: 80px
+        width: 80px
+        border: 1px dashed #333
+        background-color: yellow

@@ -33,7 +33,8 @@ Piece.prototype.down = function (type = 'right') {
         this.draw();
     } else {
         this.lock();
-        piece = randomNextPiece();
+        piece = nextPiece;
+        nextPiece = randomNextPiece();
     }
 };
 

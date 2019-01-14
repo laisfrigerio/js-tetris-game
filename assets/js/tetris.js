@@ -9,6 +9,7 @@ let boardMatrix = [];
 let square = new Square(SQUARE_SIZE);
 let board = new Board('tetris', boardMatrix, square);
 let piece = null;
+let nextPiece = null;
 
 start();
 
@@ -81,6 +82,7 @@ document.querySelector('#up').addEventListener('click', function() {
 
 function start() {
   piece = randomNextPiece();
+  nextPiece = randomNextPiece();
   board.createBoard();
   board.drawBoard();
   piece.draw(board.ctx);
