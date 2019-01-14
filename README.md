@@ -15,5 +15,5 @@ Obs: Install node
 
 ### Wireframe
 
-![Wireframe](https://github.com/laisfrigerio/js-tetris-game/blob/pause/public/images/wireframe.png "Wireframe")
+![Wireframe](https://github.com/laisfrigerio/js-tetris-game/blob/next_piece/public/images/wireframe.png "Wireframe")
 
