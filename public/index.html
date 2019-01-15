@@ -1,43 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta content="width=device-width, initial-scale=1" name="viewport" />
-    <meta charset="UTF-8">
-    <title>Tetris game</title>
-    <link href="css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-</head>
-<body>
-    <div class="control">
-        <button id="restart" type="button">RESTART</button>
-        <button id="pause" type="button">PAUSE</button>
-    </div>
-    <div id="score">
-        SCORE:
-        <span id="score-span">0</span>
-    </div>
-    <div id="board">
-        <canvas id="tetris" width="200" height="400"></canvas>
-        <canvas width="80" height="80" id="next-piece"></canvas>
-    </div>
-    <div class="control control-margin">
-        <div class="key">
-            <button id="up"><span class="fa fa-arrow-up"></span></button>
+<html lang="pt-BR">
+    <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta charset="UTF-8">
+        <title>Tetris game</title>
+        <link href="css/app.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="block-1 mt-10 logo">
+            <div class="item ml-90">
+            </div>
         </div>
-    </div>
-    <div class="control control-margin">
-        <div class="key">
-            <button id="left"><span class="fa fa-arrow-left"></span></button>
-            <button id="down"><span class="fa fa-arrow-down"></span></button>
-            <button id="right"><span class="fa fa-arrow-right"></span></button>
+        <div class="block-2 mt-10 board">
+            <div class="item">
+                <canvas id="tetris" width="200" height="400"></canvas>
+            </div>
+            <div class="block-4">
+                <div class="item item-next-piece">
+                    <canvas width="80" height="80" id="next-piece"></canvas>
+                </div>
+                <div class="item item-time mt-10">
+                    <span style="color: #333;">Time</span>
+                </div>
+                <div class="item item-score mt-10" id="score">
+                    <span id="score-span">0</span>
+                </div>
+                <div class="item item-restart-btn mt-10">
+                    <button id="restart" type="button">RESTART</button>
+                </div>
+                <div class="item item-pause-btn mt-10">
+                    <button id="pause" type="button">PAUSE</button>
+                </div>
+            </div>
         </div>
-    </div>
-    <script type="text/javascript" src="js/app.js"></script>
-    <!--<script type="text/javascript" src="js/1_tetrominoes.js"></script>
-    <script type="text/javascript" src="js/2_const.js"></script>
-    <script type="text/javascript" src="js/3_Square.jsjs"></script>
-    <script type="text/javascript" src="js/Board.js"></script>
-    <script type="text/javascript" src="js/Piece.js"></script>
-    <script type="text/javascript" src="js/tetris.js"></script>-->
-</body>
+        <div class="block-3 mb--95 control-game">
+            <div class="btn-group">
+                <button id="up"><span class="fa fa-arrow-up"></span></button>
+            </div>
+        </div>
+        <div class="block-3 mb--95 mb-10 control-game">
+            <div class="btn-group">
+                <button id="left"><span class="fa fa-arrow-left"></span></button>
+                <button id="down"><span class="fa fa-arrow-down"></span></button>
+                <button id="right"><span class="fa fa-arrow-right"></span></button>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
 </html>

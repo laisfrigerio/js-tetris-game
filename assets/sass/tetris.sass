@@ -16,14 +16,6 @@ html
       padding: 5px
       outline: none
       margin-right: 5px
-    #score
-      display: flex
-      justify-content: center
-      background-color: $color-black
-      color: $color-white
-      margin-top: 25px
-      padding-top: 10px
-      height: 25px
     #board
       display: flex
       justify-content: center
@@ -39,66 +31,50 @@ html
       #next-piece
         border: 3px double #b01dbf
         margin-left: 10px
-    .control
+    .block-1
+      display: flex
+      flex-direction: row
+      justify-content: center
+      background-color: $color-black
+      .item
+        box-sizing: border-box
+        width: 200px
+        height: 40px
+        margin-right: 8px
+        border: 1px dashed #333
+        background-color: $color-black
+        margin-left: auto
+      .ml-90
+        margin-left: -90px
+    .block-2
+      display: flex
+      flex-direction: row
+      justify-content: center
+      background-color: $color-black
+      .item
+        height: 400px
+        width: 200px
+        margin-right: 8px
+        border: 1px dashed #333
+        background-color: $color-black
+        margin-left: auto
+        text-align: center
+    .block-3
       display: flex
       justify-content: center
       align-items: flex-start
       flex-wrap: wrap
       margin-top: 10px
-      #pause
-        margin-top: 10px
-        color: $color-white
-        background-color: $color-red
-        &:hover
-          background-color: #b30101
-          border: 1px solid #7b0101
-      #restart
-        margin-top: 10px
-        color: $color-black
-        background-color: $color-yellow
-        &:hover
-          background-color: #afaf03
-          border: 1px solid #6b4a03
-      .key
+      .btn-group
         button
           color: white
           background-color: #139e00
           width: 40px
           height: 30px
+          box-sizing: border-box
           &:hover
             background-color: #0f7302
-    .control-margin
-      margin-left: -70px
-    .canvas
-      display: flex
-      flex-direction: row
-      justify-content: center
-      height: 500px
-      background-color: black
-      .item
-        height: 100%
-        width: 200px
-        margin-right: 8px
-        border: 1px dashed #333
-        background-color: yellow
-        margin-left: auto
-        text-align: center
-    .col-1
-      display: flex
-      flex-direction: row
-      justify-content: center
-      height: 100px
-      background-color: black
-      .item
-        width: 200px
-        height: 100px
-        margin-right: 8px
-        border: 1px dashed #333
-        background-color: yellow
-        margin-left: auto
-      .ml-90
-        margin-left: -90px
-    .col-2
+    .block-4
       display: flex
       flex-direction: column        /* flex items (in second column) will stack vertically */
       margin-right: auto
@@ -106,8 +82,43 @@ html
         height: 80px
         width: 80px
         border: 1px dashed #333
-        background-color: yellow
+        background-color: $color-black
+      .item-pause-btn
+        border: none
+        #pause
+          margin-top: 10px
+          color: $color-white
+          background-color: $color-red
+          &:hover
+            background-color: #b30101
+            border: 1px solid #7b0101
+      .item-restart-btn
+        border: none
+        height: 30px
+        #restart
+          margin-top: 10px
+          color: $color-black
+          background-color: $color-yellow
+          &:hover
+            background-color: #afaf03
+            border: 1px solid #6b4a03
+      .item-time
+        display: flex
+        justify-content: center
+        background-color: #000
+        color: #fff
+        padding-top: 18px
+        height: 25px
+      #score
+        display: flex
+        justify-content: center
+        background-color: $color-black
+        color: $color-white
+        padding-top: 18px
+        height: 25px
     .mt-10
       margin-top: 10px
     .mb-10
       margin-bottom: 10px
+    .mb--95
+      margin-left: -95px

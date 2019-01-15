@@ -11,7 +11,7 @@ Obs: Install node
     $ gulp js
 ```
 
-![Current style](https://github.com/laisfrigerio/js-tetris-game/blob/pause/public/images/branch/pause.png "Game screenshot")
+![Current style](https://github.com/laisfrigerio/js-tetris-game/blob/pause/public/images/branch/next_piece.png "Game screenshot")
 
 ### Wireframe
 
