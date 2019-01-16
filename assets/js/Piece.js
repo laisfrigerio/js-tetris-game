@@ -1,14 +1,14 @@
-function Piece(tetromino, color, board) {
+function Piece(tetromino, color, board, x = 3, y = -1) {
     this.tetromino = tetromino;
     this.index = 0;
     this.activeTetromino = this.tetromino[this.index];
     this.color = color;
     this.board = board;
-    this.x = 3;
-    this.y = -1;
+    this.x = x;
+    this.y = y;
 }
 
-Piece.prototype.fill = function( color) {
+Piece.prototype.fill = function(color) {
     for(let r=0; r<this.activeTetromino.length; r++) {
         for(let c=0; c<this.activeTetromino.length; c++) {
             if (this.activeTetromino[r][c]) {
@@ -33,8 +33,10 @@ Piece.prototype.down = function (type = 'right') {
         this.draw();
     } else {
         this.lock();
+        fillNextPiece(nextPiece, VACANT);
         piece = nextPiece;
         nextPiece = randomNextPiece();
+        fillNextPiece(nextPiece);
     }
 };
 

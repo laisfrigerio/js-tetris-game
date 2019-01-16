@@ -86,11 +86,32 @@ function start() {
   board.createBoard();
   board.drawBoard();
   piece.draw(board.ctx);
+  fillNextPiece(nextPiece);
   drop();
 }
 
 function setScore() {
   document.getElementById('score-span').innerText = '' + SCORE;
+}
+
+/**
+ * TODO Refactor this fill piece
+ * @param piece
+ * @param color
+ */
+function fillNextPiece(piece, color = piece.color) {
+    const canvas = document.getElementById('next-piece');
+    const ctx = canvas.getContext('2d');
+    for(let r=0; r<piece.activeTetromino.length; r++) {
+        for(let c=0; c<piece.activeTetromino.length; c++) {
+            if (piece.activeTetromino[r][c]) {
+                ctx.fillStyle = color;
+                ctx.fillRect(c*SQUARE_SIZE,r*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+                ctx.strokeStyle = 'black';
+                ctx.strokeRect(c*SQUARE_SIZE,r*SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE);
+            }
+        }
+    }
 }
 
 document.querySelector('#restart').addEventListener('click', function() {
