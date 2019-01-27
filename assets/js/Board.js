@@ -7,7 +7,7 @@ function Board(canvas, board, square) {
 
 Board.prototype.createBoard = function () {
     for(let r=0; r<ROW; r++) {
-        boardMatrix[r] = [];
+        this.boardMatrix[r] = [];
 
         for(let c=0; c<COLUMN; c++) {
             this.boardMatrix[r][c] = VACANT;

@@ -16,16 +16,6 @@ html
       padding: 5px
       outline: none
       margin-right: 5px
-    #score
-      max-width: 200px
-      background-color: $color-black
-      color: $color-white
-      margin-top: 25px
-      padding-top: 10px
-      height: 25px
-      margin-left: auto
-      margin-right: auto
-      text-align: center
     #board
       display: flex
       justify-content: center
@@ -36,35 +26,104 @@ html
       border-radius: 10px
       canvas
         border: 3px double $color-violet
+        //margin-left: auto
+        //margin-right: auto
+      #next-piece
+        border: 3px double #b01dbf
+        margin-left: 10px
+    .block-1
+      display: flex
+      flex-direction: row
+      justify-content: center
+      background-color: $color-black
+      .item
+        box-sizing: border-box
+        width: 200px
+        height: 40px
+        margin-right: 8px
+        border: 1px dashed #333
+        background-color: $color-black
         margin-left: auto
-        margin-right: auto
-        //@media (max-width: 768px)
-          //width: 80%
-    .control
+        text-align: center
+        padding: 15px
+        color: $color-white
+      .ml--90
+        margin-left: -90px
+    .block-2
+      display: flex
+      flex-direction: row
+      justify-content: center
+      background-color: $color-black
+      .item
+        height: 400px
+        width: 200px
+        margin-right: 8px
+        border: 1px dashed #333
+        background-color: $color-black
+        margin-left: auto
+        text-align: center
+    .block-3
       display: flex
       justify-content: center
       align-items: flex-start
       flex-wrap: wrap
       margin-top: 10px
-      #pause
-        margin-top: 10px
-        color: $color-white
-        background-color: $color-red
-        &:hover
-          background-color: #b30101
-          border: 1px solid #7b0101
-      #restart
-        margin-top: 10px
-        color: $color-black
-        background-color: $color-yellow
-        &:hover
-          background-color: #afaf03
-          border: 1px solid #6b4a03
-      .key
+      .btn-group
         button
           color: white
           background-color: #139e00
           width: 40px
           height: 30px
+          box-sizing: border-box
           &:hover
             background-color: #0f7302
+    .block-4
+      display: flex
+      flex-direction: column        /* flex items (in second column) will stack vertically */
+      margin-right: auto
+      .item
+        height: 80px
+        width: 80px
+        border: 1px dashed #333
+        background-color: $color-black
+      //.item-next-piece
+        height: 60px !important
+      .item-pause-btn
+        border: none
+        #pause
+          margin-top: 10px
+          color: $color-white
+          background-color: $color-red
+          &:hover
+            background-color: #b30101
+            border: 1px solid #7b0101
+      .item-restart-btn
+        border: none
+        height: 30px
+        #restart
+          margin-top: 10px
+          color: $color-black
+          background-color: $color-yellow
+          &:hover
+            background-color: #afaf03
+            border: 1px solid #6b4a03
+      .item-logo
+        display: flex
+        justify-content: center
+        background-color: #000
+        color: #fff
+        padding-top: 18px
+        height: 25px
+      #score
+        display: flex
+        justify-content: center
+        background-color: $color-black
+        color: $color-white
+        padding-top: 18px
+        height: 25px
+    .mt-10
+      margin-top: 10px
+    .mb-10
+      margin-bottom: 10px
+    .mb--95
+      margin-left: -95px
