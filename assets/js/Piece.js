@@ -99,6 +99,7 @@ Piece.prototype.lock = function () {
             if (!this.activeTetromino[r][c]) continue;
             if (this.y+r < 0) {
                 GAME_OVER = true;
+                PAUSE = true;
                 alert('Game over');
                 break;
             }

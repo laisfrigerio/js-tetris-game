@@ -14,7 +14,18 @@ function css() {
 }
 
 function js() {
-  return gulp.src('./assets/js/**/*.js')
+  const base_path = './assets/js/';
+  const files = [
+    base_path + 'tetrominoes.js',
+    base_path + 'const.js',
+    base_path + 'Square.js',
+    base_path + 'Board.js',
+    base_path + 'Piece.js',
+    base_path + 'Timer.js',
+    base_path + 'tetris.js'
+  ];
+  
+  return gulp.src(files)
     .pipe(concat('app.js'))
     .pipe(babel())
     .pipe(uglify())

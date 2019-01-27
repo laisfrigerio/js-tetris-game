@@ -87,6 +87,7 @@ function start() {
   board.drawBoard();
   piece.draw(board.ctx);
   fillNextPiece(nextPiece);
+  startTimer();
   drop();
 }
 
@@ -118,6 +119,8 @@ document.querySelector('#restart').addEventListener('click', function() {
   RESTART = true;
   PAUSE = false;
   SCORE = 0;
+  GAME_OVER = false;
   setScore();
+  clearTimer();
   start();
 });
