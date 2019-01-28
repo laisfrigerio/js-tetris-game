@@ -1,6 +1,10 @@
 # JS + Canvas Tetris Game
 
-#### To Run
+### Play
+
+https://laisfrigerio.github.io/js-tetris-game/
+
+#### To Run Locally
 
 Obs: Install node
 
