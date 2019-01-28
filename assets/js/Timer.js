@@ -15,22 +15,22 @@ function startTimer () {
 }
 
 function updateTimer() {
-  if (minute === 60) {
+  if (minute === 59) {
     second = 0;
     minute = 0;
     hour++;
   }
   
-  if (second === 60) {
+  if (second === 59) {
     minute++;
     second = 0;
   }
   
   second++;
   
-  hourID.innerText = String(hour);
-  minuteID.innerText = String(minute);
-  secondID.innerText = String(second);
+  hourID.innerText = hour < 10 ? (0 + String(hour)) : String(hour);
+  minuteID.innerText = minute < 10 ? (0 + String(minute)) : String(minute);
+  secondID.innerText = second < 10 ? (0 + String(second)) : String(second);
 }
 
 function clearTimer () {
