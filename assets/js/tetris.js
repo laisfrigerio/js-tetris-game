@@ -13,49 +13,7 @@ let nextPiece = null;
 
 start();
 
-function CONTROL(event) {
-    const key = event.which;
-    checkKey(key);
-}
-
-function checkKey(key) {
-  if(!PAUSE) {
-    if (key === KEY_LEFT) {
-      piece.moveLeft();
-      DROP_START = Date.now();
-    } else if (key === KEY_UP) {
-      piece.rotate();
-      DROP_START = Date.now();
-    } else if (key === KEY_RIGHT) {
-      piece.moveRight();
-      DROP_START = Date.now();
-    } else if (key === KEY_DOWN) {
-      piece.down('down');
-      DROP_START = Date.now();
-    }
-  }
-}
-
 window.addEventListener('keydown', CONTROL);
-
-function randomNextPiece() {
-    let random = Math.floor(Math.random() * PIECES.length);
-    return new Piece(PIECES[random][0], PIECES[random][1], board);
-}
-
-function drop() {
-    let now = Date.now();
-    let delta = now - DROP_START;
-
-    if (delta > 1000) {
-        piece.down();
-        DROP_START = Date.now();
-    }
-
-    if (!GAME_OVER && !PAUSE) {
-        requestAnimationFrame(drop);
-    }
-}
 
 document.querySelector('#pause').addEventListener('click', function() {
     if (PAUSE) {
@@ -79,6 +37,58 @@ document.querySelector('#down').addEventListener('click', function() {
 document.querySelector('#up').addEventListener('click', function() {
   checkKey(KEY_UP);
 });
+
+document.querySelector('#restart').addEventListener('click', function() {
+    RESTART = true;
+    PAUSE = false;
+    SCORE = 0;
+    GAME_OVER = false;
+    setScore();
+    clearTimer();
+    start();
+});
+
+function CONTROL(event) {
+    const key = event.which;
+    checkKey(key);
+}
+
+function checkKey(key) {
+    if(!PAUSE) {
+        if (key === KEY_LEFT) {
+            piece.moveLeft();
+            DROP_START = Date.now();
+        } else if (key === KEY_UP) {
+            piece.rotate();
+            DROP_START = Date.now();
+        } else if (key === KEY_RIGHT) {
+            piece.moveRight();
+            DROP_START = Date.now();
+        } else if (key === KEY_DOWN) {
+            piece.down('down');
+            DROP_START = Date.now();
+        }
+    }
+}
+
+function randomNextPiece() {
+    let random = Math.floor(Math.random() * PIECES.length);
+    return new Piece(PIECES[random][0], PIECES[random][1], board);
+}
+
+function drop() {
+    let now = Date.now();
+    let delta = now - DROP_START;
+
+    if (delta > 1000) {
+        piece.down();
+        DROP_START = Date.now();
+    }
+
+    if (!GAME_OVER && !PAUSE) {
+        requestAnimationFrame(drop);
+    }
+}
 
 function start() {
   piece = randomNextPiece();
@@ -114,13 +124,3 @@ function fillNextPiece(piece, color = piece.color) {
         }
     }
 }
-
-document.querySelector('#restart').addEventListener('click', function() {
-  RESTART = true;
-  PAUSE = false;
-  SCORE = 0;
-  GAME_OVER = false;
-  setScore();
-  clearTimer();
-  start();
-});
