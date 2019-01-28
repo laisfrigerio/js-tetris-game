@@ -107,6 +107,7 @@ Piece.prototype.lock = function () {
         }
     }
 
+    let count = 0;
     for(let r=0; r<ROW; r++) {
         let isFullRow = true;
         for(let c=0; c<COLUMN; c++) {
@@ -114,6 +115,7 @@ Piece.prototype.lock = function () {
         }
         
         if (isFullRow) {
+            count++;
             for(let y=r; y>1; y--) {
                 for(let c=0; c<COLUMN; c++) {
                     this.board.boardMatrix[y][c] = this.board.boardMatrix[y-1][c];
@@ -123,10 +125,11 @@ Piece.prototype.lock = function () {
                     this.board.boardMatrix[0][c] = VACANT;
                 }
             }
-          SCORE += 10;
-          setScore();
         }
     }
+
+    SCORE += (10*count);
+    setScore();
 
     this.board.drawBoard();
 };
