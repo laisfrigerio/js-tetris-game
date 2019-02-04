@@ -2,9 +2,13 @@
   "name": "js-tetris-game",
   "version": "1.0.0",
   "description": "JS + Canvas Tetris Game",
-  "main": "public/js/tetris.js",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "eslint src --color"
   },
   "engines": {
     "node": ">=0.12.0"
@@ -25,9 +29,45 @@
     "url": "https://github.com/laisfrigerio/js-tetris-game/issues"
   },
   "homepage": "https://github.com/laisfrigerio/js-tetris-game#readme",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "npm"
+      },
+      "electronWinstallerConfig": {
+        "name": "tetris_game_desktop_app"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "tetrisgamedesktopapp"
+      }
+    }
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.4",
+    "electron-squirrel-startup": "^1.0.0"
+  },
   "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "4.0.0",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",

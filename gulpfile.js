@@ -6,30 +6,29 @@ const minify = require('gulp-csso');
 const concat = require('gulp-concat');
 
 function css() {
-  return gulp.src('./assets/sass/tetris.sass')
-    .pipe(sass({outputStyle: 'tetris',  onError: console.error.bind(console, 'Sass error:')}))
-    .pipe(minify())
-    .pipe(concat('app.css'))
-    .pipe(gulp.dest('./css'));
+    return gulp.src('./assets/sass/tetris.sass')
+        .pipe(sass({outputStyle: 'tetris', onError: console.error.bind(console, 'Sass error:')}))
+        .pipe(minify())
+        .pipe(concat('app.css'))
+        .pipe(gulp.dest('./src/css'));
 }
 
 function js() {
-  const base_path = './assets/js/';
-  const files = [
-    base_path + 'tetrominoes.js',
-    base_path + 'const.js',
-    base_path + 'Square.js',
-    base_path + 'Board.js',
-    base_path + 'Piece.js',
-    base_path + 'Timer.js',
-    base_path + 'tetris.js'
-  ];
-  
-  return gulp.src(files)
-    .pipe(concat('app.js'))
-    .pipe(babel())
-    .pipe(uglify())
-    .pipe(gulp.dest('./js'));
+    const basePath = './assets/js/';
+
+    return gulp.src([
+        `${basePath}tetrominoes.js`,
+        `${basePath}const.js`,
+        `${basePath}Square.js`,
+        `${basePath}Board.js`,
+        `${basePath}Piece.js`,
+        `${basePath}Timer.js`,
+        `${basePath}tetris.js`,
+    ])
+        .pipe(concat('app.js'))
+        .pipe(babel())
+        .pipe(uglify())
+        .pipe(gulp.dest('./src/js'));
 }
 
 exports.css = css;
