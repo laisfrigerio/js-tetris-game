@@ -4,7 +4,7 @@
 
 https://laisfrigerio.github.io/js-tetris-game/
 
-#### To Run Locally
+### To Run Locally
 
 Obs: Install node
 
@@ -16,6 +16,17 @@ Obs: Install node
 ```
 
 ![Current style](https://github.com/laisfrigerio/js-tetris-game/blob/master/images/branch/master.png "Game screenshot")
+
+### Desktop app
+
+Generate desktop application with electron
+
+```
+    $ npm install -g electron-forge
+    $ npm start
+```
+
+![Desktop App](https://github.com/laisfrigerio/js-tetris-game/blob/electron/images/branch/electron.jpg "Desktop application")
 
 ### Wireframe
 
