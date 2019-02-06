@@ -18,10 +18,13 @@
     "url": "git+https://github.com/laisfrigerio/js-tetris-game.git"
   },
   "keywords": [
+    "app",
     "js",
     "canvas",
     "tetris",
-    "game"
+    "game",
+    "desktop",
+    "electron"
   ],
   "author": "Lais Frigério da Silva",
   "license": "ISC",
