@@ -10,7 +10,7 @@ function css() {
         .pipe(sass({outputStyle: 'tetris', onError: console.error.bind(console, 'Sass error:')}))
         .pipe(minify())
         .pipe(concat('app.css'))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./src/css'));
 }
 
 function js() {
@@ -28,7 +28,7 @@ function js() {
         .pipe(concat('app.js'))
         .pipe(babel())
         .pipe(uglify())
-        .pipe(gulp.dest('./js'));
+        .pipe(gulp.dest('./src/js'));
 }
 
 exports.css = css;

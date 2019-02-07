@@ -26,7 +26,7 @@ Generate desktop application with electron
     $ npm start
 ```
 
-![Desktop App](https://github.com/laisfrigerio/js-tetris-game/blob/electron/images/branch/electron.jpg "Desktop application")
+![Desktop App](https://github.com/laisfrigerio/js-tetris-game/blob/electron/src/images/branch/electron.jpg "Desktop application")
 
 ### Wireframe
 
