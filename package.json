@@ -8,7 +8,8 @@
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
-    "lint": "eslint src --color"
+    "lint": "eslint src --color",
+    "deploy": "gh-pages -d src"
   },
   "engines": {
     "node": ">=0.12.0"
