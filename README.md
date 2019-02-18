@@ -36,9 +36,3 @@ Generate .exe
 ### Wireframe
 
 ![Wireframe](https://github.com/laisfrigerio/js-tetris-game/blob/next_piece/public/images/wireframe.png "Wireframe")
-
-https://www.oreilly.com/library/view/introducing-electron/9781491996041/ch04.html
-
-https://jameschambers.co/til/github-pages-site/
-
-https://gist.github.com/cobyism/4730490
